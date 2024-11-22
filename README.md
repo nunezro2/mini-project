@@ -1,2 +1,2 @@
 # mini-project
-interview
+mini-project
