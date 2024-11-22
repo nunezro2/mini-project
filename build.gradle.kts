@@ -1,17 +1,22 @@
-import io.gitlab.arturbosch.detekt.Detekt
+// import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
     kotlin("jvm") version "2.0.20"
     kotlin("plugin.serialization") version "2.0.20" // serialization
-    id("io.github.usefulness.ktlint-gradle-plugin") version "0.10.0" // kotlin lint
-    id("io.gitlab.arturbosch.detekt") version ("1.23.7") // kotlin lint}
+    // id("io.github.usefulness.ktlint-gradle-plugin") version "0.10.0" // kotlin lint
+    // id("io.gitlab.arturbosch.detekt") version ("1.23.7") // kotlin lint}
 }
 
-group = "hackl.projekt.acrolinx"
+group = "hackl.projekt"
 version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+application {
+  // Define the main class for the application.
+    mainClass = 'hackl.projekt.Main'
 }
 
 dependencies {
@@ -31,7 +36,7 @@ dependencies {
         "org.junit.jupiter:junit-jupiter-engine:5.8.1",
         "org.jetbrains.kotlin:kotlin-test",
     ).forEach(::testImplementation)
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.7") // kotlin lint}
+    // detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.7") // kotlin lint}
 }
 
 tasks {
@@ -39,12 +44,12 @@ tasks {
         useJUnitPlatform()
     }
 
-    withType<Detekt> {
-        reports {
-            html.required.set(true)
-            txt.required.set(true)
-        }
-    }
+    // withType<Detekt> {
+    //     reports {
+    //         html.required.set(true)
+    //         txt.required.set(true)
+    //     }
+    // }
 }
 
 

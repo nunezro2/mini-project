@@ -1,25 +1,19 @@
 package hackl.projekt
 
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
-import java.io.File
+import hackl.projekt.YamlContentParser
+import hackl.projekt.YamlFileLoader
 
-fun main() {
-    println("Hello World!")
-}
+class Main {
+    fun main() {
 
-class Main  {
+        val fileName = "./src/main/resources/ci.yml"
+        val fileLoader = YamlFileLoader()
+        val contentParser = YamlContentParser()
 
-    private val mapper = YAMLFactory()
+        val content = fileLoader.getFileAsString(fileName)
+        println(content.substring(0, 10))
 
-    fun loadFile() {
-        val fileName = "/Users/claudia.nunez/Projects/acrolinx_interview/src/main/resources/ci.yml"
-        val content = getFileAsString(fileName)
 
-        val parser = getParser(content)
+        val parser = contentParser.getParser(content)
     }
-
-    fun getFileAsString(fileName: String) = File(fileName).readText()
-
-    fun getParser(content: String) = mapper.createParser(content)
 }
-
